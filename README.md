@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Exercicio prático EBAC - Projeto de Prática com Redux Toolkit + RTK Query
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma loja virtual fictícia, desenvolvida como prática para consolidar conceitos de **Redux Toolkit**, **Redux Toolkit Query (RTK Query)** e integração com React. Durante o desenvolvimento, migrei o gerenciamento de estado com `useState` para uma abordagem mais robusta usando Redux, além de consumir uma API externa com RTK Query.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Tecnologias e Ferramentas
 
-### `npm start`
+- React
+- TypeScript
+- Redux Toolkit
+- Redux Toolkit Query (RTK Query)
+- Styled Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📚 O que foi feito e aprendido
 
-### `npm test`
+### ✅ 1. **Refatoração do estado global**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Substituí o uso de `useState` no `App.tsx` por gerenciamento com Redux Toolkit.
+- Criei dois `slices`: um para o **carrinho** e outro para os **favoritos**.
+- Com isso, centralizei o estado e deixei os componentes mais limpos e desacoplados.
 
-### `npm run build`
+### ✅ 2. **Uso do Redux Toolkit**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Usei `createSlice()` para definir o estado e as actions do carrinho e favoritos.
+- Configurei a `store` com `configureStore()`.
+- Apliquei `useSelector` para acessar os estados no Redux.
+- Usei `useDispatch` para disparar ações (como adicionar/remover item).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### ✅ 3. **RTK Query (Redux Toolkit Query)**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Configurei a API com `createApi()` e `fetchBaseQuery()`.
+- Criei um endpoint `getProdutos` para buscar os produtos da loja.
+- Usei o hook `useGetProdutosQuery()` para consumir os dados na UI.
 
-### `npm run eject`
+### ✅ 4. **Componentes desacoplados**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Removi props desnecessárias (`favoritar`, `estaNosFavoritos`) e passei a acessar diretamente o Redux nos componentes.
+- Tornei o componente `Produto` independente, usando `useSelector` e `useDispatch` internamente.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### ✅ 5. **Boas práticas**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Usei `types` para definir o modelo de produto.
+- Organizei o projeto em pastas: `components`, `containers`, `store`, `services`.
+- Criei um código limpo e reutilizável, pronto para escalar.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
